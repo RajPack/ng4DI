@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import {ProductSectionComponent} from './productSection/productSection.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductSectionComponent
   ],
   imports: [
     BrowserModule
