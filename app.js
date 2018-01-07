@@ -1,1 +1,1 @@
-fgh
+console.log("initial");
