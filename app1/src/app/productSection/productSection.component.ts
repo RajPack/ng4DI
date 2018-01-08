@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component , Inject } from '@angular/core';
+import { ProductListService } from '../services/productList.services';
 
-@Component ({
+@Component({
     selector: 'app-product-section',
     templateUrl: './productSection.html'
 })
 export class ProductSectionComponent {
-    constructor()   {
-
+    private productList;
+    constructor(@Inject(ProductListService) private productService) {
+        this.productList = this.productService.getProductList();
     }
 }
 
