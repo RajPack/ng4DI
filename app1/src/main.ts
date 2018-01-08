@@ -5,7 +5,6 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import {ProductSectionComponent} from './app/productSection/productSection.component';
-
 if (environment.production) {
   enableProdMode();
 }
