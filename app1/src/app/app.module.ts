@@ -16,7 +16,7 @@ import { ProductListService } from '../app/services/productList.services';
     BrowserModule
   ],
   providers: [
-    ProductListService
+    { provide: 'ProductService', useClass: ProductListService }
   ],
   bootstrap: [AppComponent]
 })
