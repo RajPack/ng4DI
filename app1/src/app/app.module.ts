@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import {ProductSectionComponent} from './productSection/productSection.component';
+import { ProductDetailComponent } from './productDetail/productDetail.component';
 import { ProductListService } from '../app/services/productList.services';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductSectionComponent
+    ProductSectionComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule
