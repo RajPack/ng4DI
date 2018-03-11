@@ -1,0 +1,11 @@
+.rating i {
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 20px 0px 0px;
+}
+i.fa-thumbs-up{
+    color: lightskyblue;
+}
+i.fa-thumbs-down {
+    color: lightcoral;
+}

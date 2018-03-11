@@ -1,0 +1,17 @@
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="{{blog.title}}">
+        <ng-template ngbPanelContent>
+          <div>
+                {{blog.content}}
+          </div>  
+          <div class="rating">
+                <span>
+                    <i class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
+                </span>&nbsp;&nbsp;
+                <span>
+                    <i class=" fa fa-thumbs-down"></i> &nbsp; {{blog.thumbsDown}}
+                </span>
+            </div>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>

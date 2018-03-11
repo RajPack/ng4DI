@@ -1,0 +1,5 @@
+<div class="container-fluid">
+    <div *ngFor="let blog of listObservable | async" >
+        <app-blog [blog]='blog'></app-blog>
+    </div>
+</div>
