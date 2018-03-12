@@ -6,3 +6,6 @@ body{
 .fa {
     font-family: font-awesome;
 }
+.card{
+    margin: 6px 0px;
+}

@@ -1,4 +1,37 @@
-app-blog{
+.card{
     margin: 6px 0px;
-    display: block;
+}
+.rating i {
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 20px 0px 0px;
+}
+i.fa-thumbs-up{
+    color: lightskyblue;
+}
+i.fa-thumbs-down {
+    color: lightcoral;
+}
+.author{
+    font-size: 15px;
+    color: lightcoral;
+}
+.title {
+    font-size:  20px;
+    color: grey;
+    font-weight: bold;
+}
+.title:hover {
+    text-decoration: none !important;
+}
+.content{
+    white-space: pre-line;
+}
+.editbutton{
+    cursor: pointer;
+    font-size: 16px;
+    color: #098dc1;
+}
+.editbutton:hover{
+    font-size: 18px;
 }

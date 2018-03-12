@@ -6,7 +6,6 @@ import { BlogService } from './blog/blog.service';
 
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blogList/blogList.component';
-import { BlogComponent } from './blog/blog.component';
 import { BlogEditComponent } from './blogEdit/blogEdit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     BlogListComponent,
-    BlogComponent,
     BlogEditComponent
   ],
   imports: [
