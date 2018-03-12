@@ -8,3 +8,4 @@ The Application will,
 3. allow users to edit the blogs
 4. allow users to create new blogs and add it to the blog list
 
+May be in future add a node js server and persist the data.
