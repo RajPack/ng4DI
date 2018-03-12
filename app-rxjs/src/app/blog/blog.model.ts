@@ -7,3 +7,9 @@ export class Blog {
     thumbsDown: number;
 }
 
+export class BlogEdit {
+    id: any;
+    title: string;
+    content: string;
+    author: string;
+}

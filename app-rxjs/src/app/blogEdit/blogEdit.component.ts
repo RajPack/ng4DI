@@ -2,6 +2,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Blog } from "../blog/blog.model";
+import { BlogService } from "../blog/blog.service";
 
 @Component({
     selector: 'app-blog-edit',
@@ -11,7 +12,7 @@ import { Blog } from "../blog/blog.model";
 export class BlogEditComponent implements OnInit {
     @Input() blog: Blog;
     blogForm: FormGroup;
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private blogService: BlogService) {
         this.createForm();
     }
     ngOnInit() {
@@ -31,5 +32,13 @@ export class BlogEditComponent implements OnInit {
             content: this.blog.content,
             author: this.blog.author
         });
+    }
+
+    onSubmit() {
+        let author: string, title: string, content: string;
+        author = this.blogForm.get('author').value;
+        title = this.blogForm.get('title').value;
+        content = this.blogForm.get('content').value;
+        this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content});
     }
 }

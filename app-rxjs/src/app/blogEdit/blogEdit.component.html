@@ -1,5 +1,5 @@
 <h3>Edit Form</h3>
-<form [formGroup]="blogForm">
+<form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <div>
             <label class="center-block"> Title :
@@ -15,6 +15,9 @@
             <label class="center-block"> Author :
                 <input class="form-control" formControlName="author">
             </label>
+        </div>
+        <div style ="padding:10px  50px;; float:right;">
+                <button type="submit" class="btn btn-success" [disabled]="!blogForm.valid">Submit</button>
         </div>
     </div>
 </form>
