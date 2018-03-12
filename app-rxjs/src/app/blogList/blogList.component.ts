@@ -12,11 +12,9 @@ import { Blog } from '../blog/blog.model';
 export class BlogListComponent implements OnInit, OnDestroy {
   listSubscription: Subscription;
   listObservable: Observable<Blog[]>;
-  votedByCurrentUser: boolean = false;
-  editMode: boolean = false;
   toolTip: string = "";
 
-  
+
   constructor(private blogService: BlogService) { }
   ngOnInit() {
     this.listObservable = this.blogService.getBlogListSubject();
@@ -25,15 +23,19 @@ export class BlogListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.listSubscription.unsubscribe();
   }
-  private editBlog(event) {
+  private editBlog(event, blog) {
     event.preventDefault();
     event.stopImmediatePropagation();
-    this.editMode = true;
+    // blog.editMode = true;
+    this.toggleEditMode(blog);
+  }
+  private toggleEditMode(blog) {
+    blog.editMode = !blog.editMode;
   }
   private vote(direction: number, blog: Blog) {
-    (!this.votedByCurrentUser) && (blog[direction] += 1);
+    (!blog.voted) && (blog[direction] += 1);
     this.toolTip = "You have casted your vote for this blog already. Can vote only once!";
-    this.votedByCurrentUser = true;
+    blog.voted = true;
   }
 }
 

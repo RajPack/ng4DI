@@ -5,6 +5,8 @@ export class Blog {
     author: string;
     thumbsUp: number;
     thumbsDown: number;
+    editMode?: boolean;
+    voted?: boolean;
 }
 
 export class BlogEdit {

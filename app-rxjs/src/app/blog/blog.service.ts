@@ -26,7 +26,8 @@ export class BlogService {
                 content: data.content,
                 thumbsDown: blog.thumbsDown,
                 thumbsUp: blog.thumbsUp,
-                author: data.author
+                author: data.author,
+                voted: blog.voted || false
             };
         })[0];
         currentList[matchIndex] = updatedBlog;

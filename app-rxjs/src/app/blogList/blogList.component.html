@@ -1,7 +1,5 @@
 <div class="container-fluid">
-    <div>
         <ngb-accordion #acc="ngbAccordion" activeIds="1-header" closeOthers=true>
-            <div class="blog">
                 <ngb-panel *ngFor="let blog of listObservable | async" [id]="blog.id">
                     <ng-template ngbPanelTitle>
                         <span class="title">{{blog.title}}</span>
@@ -12,7 +10,7 @@
 
                     </ng-template>
                     <ng-template ngbPanelContent>
-                        <div *ngIf="editMode===false">
+                        <div *ngIf="!blog.editMode">
                             <div class="content">
                                 {{blog.content}}
                             </div>
@@ -25,13 +23,10 @@
                                 </span>
                             </div>
                         </div>
-                        <div *ngIf="editMode===true">
+                        <div *ngIf="blog.editMode===true">
                             <app-blog-edit [blog]='blog'></app-blog-edit>
                         </div>
                     </ng-template>
                 </ngb-panel>
-            </div>
-
         </ngb-accordion>
-    </div>
 </div>

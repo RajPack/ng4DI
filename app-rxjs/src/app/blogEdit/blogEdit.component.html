@@ -16,8 +16,11 @@
                 <input class="form-control" formControlName="author">
             </label>
         </div>
-        <div style ="padding:10px  50px;; float:right;">
-                <button type="submit" class="btn btn-success" [disabled]="!blogForm.valid">Submit</button>
+        <div style ="padding:10px  5px;; float:right;">
+                <button type="submit" class="btn btn-info" [disabled]="!blogForm.valid">Submit</button>
+        </div>
+        <div style ="padding:10px  5px;; float:right;">
+                <button  class="btn btn-danger"  (click)="toggleEditMode()">Cancel</button>
         </div>
     </div>
 </form>

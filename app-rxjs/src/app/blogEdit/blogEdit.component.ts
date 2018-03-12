@@ -41,4 +41,7 @@ export class BlogEditComponent implements OnInit {
         content = this.blogForm.get('content').value;
         this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content});
     }
+    private toggleEditMode() {
+        this.blog.editMode = !this.blog.editMode;
+    }
 }
