@@ -25,4 +25,4 @@ export const initialBloglist: Blog[] = [
     This cookbook shows you how to use formGroup to dynamically render a simple form with different control types and validation. It's a primitive start. It might evolve to support a much richer variety of questions, more graceful rendering, and superior user experience. All such greatness has humble beginnings.
     
     The example in this cookbook is a dynamic form to build an online application experience for heroes seeking employment. The agency is constantly tinkering with the application process. You can create the forms on the fly without changing the application code. ` ,author: 'Google Angular Team', thumbsUp: 12, thumbsDown: 1}
-]
+];

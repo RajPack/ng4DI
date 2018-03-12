@@ -16,10 +16,10 @@
                             </div>
                             <div class="rating">
                                 <span>
-                                    <i [ngbTooltip]="toolTip" (click)='vote("thumbsUp", blog)' class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
+                                    <i [ngbTooltip]="blog.voteToolTip" (click)='vote("thumbsUp", blog)' class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
                                 </span>&nbsp;&nbsp;
                                 <span>
-                                    <i [ngbTooltip]="toolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown", blog)'></i> &nbsp; {{blog.thumbsDown}}
+                                    <i [ngbTooltip]="blog.voteToolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown", blog)'></i> &nbsp; {{blog.thumbsDown}}
                                 </span>
                             </div>
                         </div>

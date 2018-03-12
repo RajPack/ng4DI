@@ -12,8 +12,6 @@ import { Blog } from '../blog/blog.model';
 export class BlogListComponent implements OnInit, OnDestroy {
   listSubscription: Subscription;
   listObservable: Observable<Blog[]>;
-  toolTip: string = "";
-
 
   constructor(private blogService: BlogService) { }
   ngOnInit() {
@@ -34,7 +32,7 @@ export class BlogListComponent implements OnInit, OnDestroy {
   }
   private vote(direction: number, blog: Blog) {
     (!blog.voted) && (blog[direction] += 1);
-    this.toolTip = "You have casted your vote for this blog already. Can vote only once!";
+    blog.voteToolTip = "You have casted your vote for this blog already. Can vote only once!";
     blog.voted = true;
   }
 }
