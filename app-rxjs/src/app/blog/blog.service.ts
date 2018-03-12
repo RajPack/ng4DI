@@ -5,7 +5,7 @@ import { initialBloglist } from './blog.data';
 export class BlogService {
     private blogListSubject : BehaviorSubject<Blog[]> = new BehaviorSubject(initialBloglist);
     
-    getBlogListSubject (){
+    getBlogListSubject (): BehaviorSubject<Blog[]>{
         return this.blogListSubject;
     }
 }

@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Blog } from './blog.model';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
     selector: 'app-blog',
@@ -14,7 +14,8 @@ export class BlogComponent {
     toolTip: string  = "";
     constructor(){
     }
-
+    ngOnInit() {
+    }
     private vote(direction: number){
         (!this.votedByCurrentUser) && (this.blog[direction] += 1);
         this.toolTip = "You have casted your vote for this blog already. Can vote only once!";
