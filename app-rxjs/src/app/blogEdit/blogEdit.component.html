@@ -1,0 +1,20 @@
+<h3>Edit Form</h3>
+<form [formGroup]="blogForm">
+    <div class="form-group">
+        <div>
+            <label class="center-block"> Title :
+                <input class="form-control" formControlName="title">
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Content :
+                <textarea class="form-control" formControlName="content"></textarea>
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Author :
+                <input class="form-control" formControlName="author">
+            </label>
+        </div>
+    </div>
+</form>

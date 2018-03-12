@@ -24,3 +24,11 @@ i.fa-thumbs-down {
 .content{
     white-space: pre-line;
 }
+.editbutton{
+    cursor: pointer;
+    font-size: 16px;
+    color: #098dc1;
+}
+.editbutton:hover{
+    font-size: 18px;
+}

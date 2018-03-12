@@ -7,17 +7,22 @@ import { BlogService } from './blog/blog.service';
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blogList/blogList.component';
 import { BlogComponent } from './blog/blog.component';
+import { BlogEditComponent } from './blogEdit/blogEdit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogListComponent,
-    BlogComponent
+    BlogComponent,
+    BlogEditComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     BlogService
