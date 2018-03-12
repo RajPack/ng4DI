@@ -1,15 +1,19 @@
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel title="{{blog.title}}">
+    <ngb-panel>
+        <ng-template ngbPanelTitle>
+            <span class="title">{{blog.title}}</span> 
+            <span class="author" style="display: block; float: right;">Author: {{blog.author}}</span>
+        </ng-template>
         <ng-template ngbPanelContent>
-          <div>
+            <div>
                 {{blog.content}}
-          </div>  
-          <div class="rating">
+            </div>
+            <div class="rating">
                 <span>
-                    <i class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
+                    <i [ngbTooltip]="toolTip" (click)='vote("thumbsUp")' class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
                 </span>&nbsp;&nbsp;
                 <span>
-                    <i class=" fa fa-thumbs-down"></i> &nbsp; {{blog.thumbsDown}}
+                    <i [ngbTooltip]="toolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown")'></i> &nbsp; {{blog.thumbsDown}}
                 </span>
             </div>
         </ng-template>

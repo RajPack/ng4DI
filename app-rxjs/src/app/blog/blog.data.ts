@@ -3,7 +3,7 @@ import { Blog } from './blog.model';
 export const initialBloglist: Blog[] = [
     {id: 1, title: 'Angular Rocks' , content: 'Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop' ,author: 'Google Angular Team', thumbsUp: 30, thumbsDown: 1},
     {id: 2, title: 'Angular Architecture' , content: 'Angular is a framework for building client applications in HTML and either JavaScript or a language like TypeScript that compiles to JavaScript.   The framework consists of several libraries, some of them core and some optional.  You write Angular applications by composing HTML templates with Angularized markup, writing component classes to manage those templates, adding application logic in services, and boxing components and services in modules. Then you launch the app by bootstrapping the root module. Angular takes over, presenting your application content in a browser and responding to user interactions according to the instructions you provided.' ,author: 'Google Angular Team', thumbsUp: 20, thumbsDown: 2},
-    {id: 3, title: 'DI' , content: `Dependency injection is an important application design pattern. It's used so widely that almost everyone just calls it DI.
+    {id: 3, title: 'Dependency Injection (DI)' , content: `Dependency injection is an important application design pattern. It's used so widely that almost everyone just calls it DI.
 
     Angular has its own dependency injection framework, and you really can't build an Angular application without it.
     

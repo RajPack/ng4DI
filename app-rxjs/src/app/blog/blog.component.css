@@ -9,3 +9,15 @@ i.fa-thumbs-up{
 i.fa-thumbs-down {
     color: lightcoral;
 }
+.author{
+    font-size: 15px;
+    color: lightcoral;
+}
+.title {
+    font-size:  20px;
+    color: grey;
+    font-weight: bold;
+}
+.title:hover {
+    text-decoration: none !important;
+}
