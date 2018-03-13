@@ -1,2 +1,9 @@
 DI.code-workspace
 node_modules/   
+/.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite
+/tslint.json
+app-rxjs/tslint.json
+.vs/ng4DI-master/v15/.suo
+app-rxjs/.angulardoc.json
+.vs/VSWorkspaceState.json
