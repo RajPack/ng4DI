@@ -10,10 +10,10 @@ import { BlogService } from '../blog/blog.service';
 })
 export class CommentsComponent implements OnInit {
     commentsObservable: Observable<BlogComment[]>;
-    constructor(private blogService: BlogService){
+    constructor(private blogService: BlogService) {
         
     }
-    ngOnInit(){
+    ngOnInit() {
 
     }
 }

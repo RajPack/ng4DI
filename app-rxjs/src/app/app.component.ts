@@ -12,25 +12,25 @@ export class AppComponent implements OnInit, OnDestroy {
   createMode: boolean = false;
   creationSubscription: Subscription;
   creationSubject: Subject<boolean>;
-  constructor(private blogService: BlogService){
+  constructor(private blogService: BlogService) {
     this.creationSubject = this.blogService.creationComplete;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.creationSubscription = this.creationSubject.subscribe((complete) => {
-      if(complete){
+      if (complete) {
         this.exitCreateMode();
       }
-    })
+    });
   }
-  enterCreateMode(){
+  enterCreateMode() {
     this.createMode = true;
   }
-  exitCreateMode(){
+  exitCreateMode() {
     this.createMode = false;
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.creationSubscription.unsubscribe();
   }
 }

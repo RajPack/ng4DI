@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BlogService } from '../blog/blog.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -10,6 +10,7 @@ import { Blog } from '../blog/blog.model';
   styleUrls: ['./blogList.component.css']
 })
 export class BlogListComponent implements OnInit {
+  @Input() blog: Blog;
   listObservable: Observable<Blog[]>;
 
   constructor(private blogService: BlogService) { }

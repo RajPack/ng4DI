@@ -26,6 +26,9 @@
                         <div *ngIf="blog.editMode===true">
                             <app-blog-edit [blog]='blog'></app-blog-edit>
                         </div>
+                        <div class="commentsSection">
+                            <app-comments [blog]="blog"></app-comments>
+                        </div>
                     </ng-template>
                 </ngb-panel>
         </ngb-accordion>
