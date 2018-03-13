@@ -1,28 +1,37 @@
 <div>
     <div *ngIf="comments.length===0">
-        <div class="">
-            No Comments
+        <div class="alert alert-dark CommentsTitle">
+            <strong>No Comments</strong>
         </div>
     </div>
     <div *ngIf="comments.length>0">
-        <div *ngFor="let comment of comments" class="container card">
-            <div>
-                {{comment.content}}
+        <div class="alert alert-dark CommentsTitle">
+            <strong>Comments</strong>
+        </div>
+
+        <div *ngFor="let comment of comments" class="media border-light rounded">
+
+            <div class="text-dark commentC" style="flex-grow: 1; padding-left: 5px;">
+                <span class="media-body text-justify">
+                    {{comment.content}}
+                </span>
+                <span class="badge badge-light pull-right">
+                    <span color="blue">{{comment.author}}</span>&nbsp; - &nbsp; {{comment.time | date:'medium'}}
+                </span>
             </div>
-            <div>
-                {{comment.author}}
-            </div>
+
         </div>
     </div>
-    <div class="newCommentSection">
+    <div class="newCommentSection panel panel-primary">
         <form [formGroup]="newComment" (ngSubmit)="onSubmit()">
-            <div>
-                <label class="center-block"> Enter your comment :
-                    <textarea rows="4" cols="120" class="form-control" formControlName="content"></textarea>
-                </label>
+            <div class="alert alert-info CommentsTitle">
+                <strong>Add Your Comments below</strong>
+            </div>
+            <div class="panel-heading"> Comment :
+                <textarea rows="4" cols="120" class="form-control" formControlName="content"></textarea>
             </div>
             <div>
-                <label class="center-block">Enter your Name :
+                <label class="center-block">Name :
                     <input type="text" class="form-control" formControlName="author">
                 </label>
             </div>

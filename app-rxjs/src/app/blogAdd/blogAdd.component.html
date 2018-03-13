@@ -1,4 +1,4 @@
-<h3>Add a new Blog</h3>
+<div class='alert alert-info '><strong style="font-size: 1.1em;">Add a new Blog</strong></div>
 <form [formGroup]="blogAddForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <div>
@@ -22,5 +22,6 @@
         <div style ="padding:10px  5px;; float:right;">
                 <button  class="btn btn-danger"  (click)="destroyComponent()">Cancel</button>
         </div>
+        <div style="clear: both;"></div>
     </div>
 </form>
