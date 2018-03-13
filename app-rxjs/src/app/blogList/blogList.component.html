@@ -22,12 +22,12 @@
                                     <i [ngbTooltip]="blog.voteToolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown", blog)'></i> &nbsp; {{blog.thumbsDown}}
                                 </span>
                             </div>
+                            <div class="commentsSection">
+                                <app-comments [blog]="blog"></app-comments>
+                            </div>
                         </div>
                         <div *ngIf="blog.editMode===true">
                             <app-blog-edit [blog]='blog'></app-blog-edit>
-                        </div>
-                        <div class="commentsSection">
-                            <app-comments [blog]="blog"></app-comments>
                         </div>
                     </ng-template>
                 </ngb-panel>

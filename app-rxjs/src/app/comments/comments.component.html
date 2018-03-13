@@ -1,1 +1,34 @@
-comments work!!
+<div>
+    <div *ngIf="comments.length===0">
+        <div class="">
+            No Comments
+        </div>
+    </div>
+    <div *ngIf="comments.length>0">
+        <div *ngFor="let comment of comments" class="container card">
+            <div>
+                {{comment.content}}
+            </div>
+            <div>
+                {{comment.author}}
+            </div>
+        </div>
+    </div>
+    <div class="newCommentSection">
+        <form [formGroup]="newComment" (ngSubmit)="onSubmit()">
+            <div>
+                <label class="center-block"> Enter your comment :
+                    <textarea rows="4" cols="120" class="form-control" formControlName="content"></textarea>
+                </label>
+            </div>
+            <div>
+                <label class="center-block">Enter your Name :
+                    <input type="text" class="form-control" formControlName="author">
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-info" type="submit" [disabled]="!newComment.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

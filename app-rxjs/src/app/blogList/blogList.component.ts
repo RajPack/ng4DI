@@ -10,7 +10,6 @@ import { Blog } from '../blog/blog.model';
   styleUrls: ['./blogList.component.css']
 })
 export class BlogListComponent implements OnInit {
-  @Input() blog: Blog;
   listObservable: Observable<Blog[]>;
 
   constructor(private blogService: BlogService) { }
