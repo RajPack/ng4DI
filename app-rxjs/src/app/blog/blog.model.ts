@@ -7,6 +7,7 @@ export class Blog {
     thumbsDown: number;
     editMode?: boolean;
     voted?: boolean;
+    voteToolTip?: string;
 }
 
 export class BlogEdit {
