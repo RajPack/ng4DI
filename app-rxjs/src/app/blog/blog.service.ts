@@ -7,8 +7,6 @@ import 'rxjs/add/observable/from';
 import { Subject } from 'rxjs/Subject';
 
 
-
-
 export class BlogService {
     private blogListSubject: BehaviorSubject<Blog[]> = new BehaviorSubject(initialBloglist);
     creationComplete: Subject<boolean> = new Subject();

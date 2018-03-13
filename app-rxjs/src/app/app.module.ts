@@ -9,6 +9,7 @@ import { BlogListComponent } from './blogList/blogList.component';
 import { BlogEditComponent } from './blogEdit/blogEdit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogAddComponent } from './blogAdd/blogAdd.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { BlogAddComponent } from './blogAdd/blogAdd.component';
     AppComponent,
     BlogListComponent,
     BlogEditComponent,
-    BlogAddComponent
+    BlogAddComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
