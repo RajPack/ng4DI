@@ -1,0 +1,26 @@
+<h3>Add a new Blog</h3>
+<form [formGroup]="blogAddForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div>
+            <label class="center-block"> Title :
+                <input class="form-control" formControlName="title">
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Content :
+                <textarea rows="20" cols="150" class="form-control" formControlName="content"></textarea>
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Author :
+                <input class="form-control" formControlName="author">
+            </label>
+        </div>
+        <div style ="padding:10px  5px;; float:right;">
+                <button type="submit" class="btn btn-info" [disabled]="!blogAddForm.valid">Submit</button>
+        </div>
+        <div style ="padding:10px  5px;; float:right;">
+                <button  class="btn btn-danger"  (click)="destroyComponent()">Cancel</button>
+        </div>
+    </div>
+</form>

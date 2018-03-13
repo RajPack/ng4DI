@@ -4,12 +4,14 @@ import { initialBloglist } from './blog.data';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
+import { Subject } from 'rxjs/Subject';
 
 
 
 
 export class BlogService {
     private blogListSubject: BehaviorSubject<Blog[]> = new BehaviorSubject(initialBloglist);
+    creationComplete: Subject<boolean> = new Subject();
 
     getBlogListSubject(): BehaviorSubject<Blog[]> {
         return this.blogListSubject;
@@ -33,5 +35,17 @@ export class BlogService {
         })[0];
         currentList[matchIndex] = updatedBlog;
         this.blogListSubject.next(currentList);
+    }
+    addNewBlog(title: string, author: string, content: string) {
+        let newBlog = new Blog(title, content, author);
+        let currentList: Blog[];
+        this.blogListSubject.subscribe((list) => {currentList = list; });
+        currentList.push(newBlog);
+        this.blogListSubject.next(currentList);
+        this.notifyCreationComplete();
+    }
+
+    notifyCreationComplete(){
+        this.creationComplete.next(true);
     }
 }

@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { BlogListComponent } from './blogList/blogList.component';
 import { BlogEditComponent } from './blogEdit/blogEdit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BlogAddComponent } from './blogAdd/blogAdd.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogListComponent,
-    BlogEditComponent
+    BlogEditComponent,
+    BlogAddComponent
   ],
   imports: [
     BrowserModule,

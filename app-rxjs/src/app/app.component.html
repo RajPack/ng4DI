@@ -4,6 +4,10 @@
         <p class="lead">This is blog review site demo</p>
         <hr class="my-2">
         <p>Check out the blogs below and rate them</p>
+        <button class="btn btn-success" (click)="enterCreateMode()">Create Blog</button>
     </div>
+</div>
+<div *ngIf="createMode===true"  class="card addSection">
+    <app-blog-add></app-blog-add>
 </div>
 <app-blog-list></app-blog-list>

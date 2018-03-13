@@ -8,6 +8,16 @@ export class Blog {
     editMode?: boolean;
     voted?: boolean;
     voteToolTip?: string;
+
+    constructor(title: string, content: string, author: string){
+        this.title = title;
+        this.content = content || "";
+        this.author = author;
+        this.id = new Date().getTime();
+        this.thumbsDown = 0;
+        this.thumbsUp = 0;
+    }
+    
 }
 
 export class BlogEdit {
