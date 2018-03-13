@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../blog/blog.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -9,28 +9,22 @@ import { Blog } from '../blog/blog.model';
   templateUrl: './blogList.component.html',
   styleUrls: ['./blogList.component.css']
 })
-export class BlogListComponent implements OnInit, OnDestroy {
-  listSubscription: Subscription;
+export class BlogListComponent implements OnInit {
   listObservable: Observable<Blog[]>;
 
   constructor(private blogService: BlogService) { }
   ngOnInit() {
     this.listObservable = this.blogService.getBlogListSubject();
-    this.listSubscription = this.listObservable.subscribe();
-  }
-  ngOnDestroy() {
-    this.listSubscription.unsubscribe();
   }
   private editBlog(event, blog) {
     event.preventDefault();
     event.stopImmediatePropagation();
-    // blog.editMode = true;
     this.toggleEditMode(blog);
   }
   private toggleEditMode(blog) {
     blog.editMode = !blog.editMode;
   }
-  private vote(direction: number, blog: Blog) {
+  private vote(direction: string, blog: Blog) {
     (!blog.voted) && (blog[direction] += 1);
     blog.voteToolTip = "You have casted your vote for this blog already. Can vote only once!";
     blog.voted = true;
