@@ -1,0 +1,8 @@
+<div class="" style="margin-top:30px;">
+  <ul class="nav colnav  nav-pills">
+    <li class="nav nav-item" routerLinkActive="'active bg-info text-white'" *ngFor="let item of catalogData"><a routerLinkActive="text-white" class="nav nav-link" [routerLink]="['/catalog',item.id]"> {{item.name}} </a> </li>
+  </ul>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

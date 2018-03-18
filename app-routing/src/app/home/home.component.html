@@ -1,0 +1,58 @@
+
+<div class="">
+  <button class="btn btn-link" (click)="gotoAbout('about')">Go to About</button>
+  <button class="btn btn-link" (click)="gotoAbout('contactUs')">Go to Contact Us</button>
+</div>
+<div class="">
+    <a class="btn btn-link" routerLink="/" [fragment]="'activatedRoute'">Go to Activated Route</a>
+    <a class="btn btn-link" routerLink="/" fragment = "routerState">Go To Router State</a>
+  </div>
+
+<div class="bg-success text-white">
+    <a id="routerState" >Router state</a>
+</div>
+
+<div class="container" style="white-space: pre-line;">
+  After the end of each successful navigation lifecycle, the router builds a tree of ActivatedRoute objects that make up the current state of the router. You can access the current RouterState from anywhere in the application using the Router service and the routerState property.
+
+  Each ActivatedRoute in the RouterState provides methods to traverse up and down the route tree to get information from parent, child and sibling routes.
+</div>
+<div class="bg-success text-white">
+    <a id="activatedRoute">
+        Activated route
+      </a>
+</div>
+
+<div class="container" style="white-space: pre-line;">
+    The route path and parameters are available through an injected router service called the ActivatedRoute. It has a great deal of useful information including:
+    Property	Description
+url	
+An Observable of the route path(s), represented as an array of strings for each part of the route path.
+
+data	
+An Observable that contains the data object provided for the route. Also contains any resolved values from the resolve guard.
+
+paramMap	
+An Observable that contains a map of the required and optional parameters specific to the route. The map supports retrieving single and multiple values from the same parameter.
+
+queryParamMap	
+An Observable that contains a map of the query parameters available to all routes. The map supports retrieving single and multiple values from the query parameter.
+
+fragment	
+An Observable of the URL fragment available to all routes.
+
+outlet	
+The name of the RouterOutlet used to render the route. For an unnamed outlet, the outlet name is primary.
+
+routeConfig	
+The route configuration used for the route that contains the origin path.
+
+parent	
+The route's parent ActivatedRoute when this route is a child route.
+
+firstChild	
+Contains the first ActivatedRoute in the list of this route's child routes.
+
+children	
+Contains all the child routes activated under the current route.
+</div>

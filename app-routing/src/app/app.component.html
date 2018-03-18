@@ -1,0 +1,21 @@
+<div class="nav nav-bar navbar-dark bg-dark text-light">
+  <h3>
+    Welcome to Angular Routing Sample Application
+  </h3>
+</div>
+
+<div class="container" style='margin-top:20px;'>
+  <div class="nav nav-bar row"  >
+    <ul class ="nav-tabs nav">
+      <li class="nav-item"><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a></li>
+      <li class="nav-item"><a routerLink="catalog" routerLinkActive="active" class="nav-link">Catalog</a></li>
+      <li class="nav-item"><a routerLink = "contactUs" routerLinkActive = "active" class="nav-link">Contac Us</a></li>
+      <li class="nav-item"><a routerLink = "about" routerLinkActive="active" class="nav-link">About</a></li>
+    </ul>
+  </div>
+  
+  <router-outlet></router-outlet>
+  <div class="container">
+    <router-outlet name="secondary"></router-outlet>
+  </div>
+</div>
