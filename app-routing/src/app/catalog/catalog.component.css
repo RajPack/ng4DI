@@ -1,3 +1,6 @@
 .colnav{
     flex-direction: column;
 }
+.itemCard{
+    border: none;
+}

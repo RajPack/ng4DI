@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 import { CatalogService } from './catalog/catalog.data';
+import { CatalogItemEditComponent } from './catalog-item-edit/catalog-item-edit.component';
 
 
 
@@ -21,7 +22,8 @@ import { CatalogService } from './catalog/catalog.data';
     ContactUsComponent,
     AboutComponent,
     NotFoundComponent,
-    CatalogItemComponent
+    CatalogItemComponent,
+    CatalogItemEditComponent
   ],
   imports: [
     BrowserModule,

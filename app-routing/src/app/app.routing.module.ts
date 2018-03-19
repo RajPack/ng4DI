@@ -6,11 +6,13 @@
     import { AboutComponent } from "./about/about.component";
     import { NotFoundComponent } from "./not-found/not-found.component";
     import { CatalogItemComponent } from "./catalog-item/catalog-item.component";
+import { CatalogItemEditComponent } from "./catalog-item-edit/catalog-item-edit.component";
 
     const appRoute: Route[] = [
         {path:"", component: HomeComponent},
         {path:"catalog", component: CatalogComponent, children: [
-            {path: ":id", component: CatalogItemComponent}
+            {path: ":id", component: CatalogItemComponent},
+            {path: ":id/editItem", component: CatalogItemEditComponent, outlet: "edit"}
         ]},
         {path:"contactUs", component: ContactUsComponent},
         {path:"about", component: AboutComponent},

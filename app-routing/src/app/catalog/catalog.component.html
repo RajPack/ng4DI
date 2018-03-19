@@ -3,6 +3,12 @@
     <li class="nav nav-item" routerLinkActive="'active bg-info text-white'" *ngFor="let item of catalogData"><a routerLinkActive="text-white" class="nav nav-link" [routerLink]="['/catalog',item.id]"> {{item.name}} </a> </li>
   </ul>
 </div>
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="row" style="padding-top: 40px;">
+  <div class="col-xl-6 itemCard card bg-light rounded" style="padding: 20px;">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-xl-1"></div>
+  <div class="col-xl-5 itemCard card bg-light rounded" style="padding: 20px;">
+    <router-outlet name="edit"></router-outlet>
+  </div>
 </div>
