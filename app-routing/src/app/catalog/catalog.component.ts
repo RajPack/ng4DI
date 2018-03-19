@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogData } from './catalog.data';
+import { ActivatedRoute } from '@angular/Router';
 
 @Component({
   selector: 'app-catalog',
@@ -8,7 +9,7 @@ import { CatalogData } from './catalog.data';
 })
 export class CatalogComponent implements OnInit {
   private catalogData = CatalogData;
-  constructor() { }
+  constructor(private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/Router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private activatedRoute : ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute) {
 
   }
 

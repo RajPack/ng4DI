@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CatalogItemComponent } from './catalog-item/catalog-item.component';
+import { CatalogService } from './catalog/catalog.data';
 
 
 
@@ -26,7 +27,7 @@ import { CatalogItemComponent } from './catalog-item/catalog-item.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CatalogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,6 @@
+import { Subject } from "rxjs/Subject";
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 export const CatalogData = [
     {
         id: 1,
@@ -19,4 +22,18 @@ export const CatalogData = [
         name: "Topic 4",
         data: "Topic 4 data"
     }
-]
+];
+
+export class CatalogService {
+    constructor () {
+
+    }
+    getCatalogItem (id) {
+        const filteredData = CatalogData.filter(
+            (item) => {
+              return item.id === Number(id) ? true : false;
+            }
+          );
+        return new BehaviorSubject(filteredData[0]);
+    }
+}
