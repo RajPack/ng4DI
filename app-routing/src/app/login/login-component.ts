@@ -19,6 +19,9 @@ export class LoginComponent {
         });
     }
     onSubmit() {
+       const userid = this.loginForm.get("userid");
+       const password  = this.loginForm.get("password");
+        this.loginService.login(userid.value, password.value);
 
     }
 }
