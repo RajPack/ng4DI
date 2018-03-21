@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/Router';
   styleUrls: ['./catalog-item-edit.component.css']
 })
 export class CatalogItemEditComponent implements OnInit {
-itemId: string;
+  itemId: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params)=>{
+    this.route.params.subscribe((params) => {
       this.itemId = params.id
     });
   }
