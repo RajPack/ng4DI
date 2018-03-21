@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class LoginComponent {
     loginForm: FormGroup;
+    login: boolean;
+    priviledgedLogin: boolean;
     constructor(private loginService: LoginService, private formBuilder: FormBuilder) {
         this.createForm();
     }
@@ -22,6 +24,10 @@ export class LoginComponent {
        const userid = this.loginForm.get("userid");
        const password  = this.loginForm.get("password");
         this.loginService.login(userid.value, password.value);
+        this.login = this.loginService.loggedIn;
+        this.priviledgedLogin = this.loginService.privilegedUser;
+    }
+    updateProperties () {
 
     }
 }
