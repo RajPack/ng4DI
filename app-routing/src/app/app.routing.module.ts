@@ -8,9 +8,10 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { CatalogItemComponent } from "./catalog-item/catalog-item.component";
 import { CatalogItemEditComponent } from "./catalog-item-edit/catalog-item-edit.component";
 import { PrivilegedComponent } from "./privileged/privileged.component";
-import { PrivilegedGuard } from "./privileged-guard.service";
+import { PrivilegedGuard , PrivilegedDeactivateGuard} from "./privileged-guard.service";
 import { LoginService } from "./login.service";
 import { LoginComponent } from "./login/login-component";
+import { PrivilegeDataService } from "./privileged/privileged.data.service";
 
 const appRoute: Route[] = [
     { path: "", component: HomeComponent },
@@ -21,7 +22,8 @@ const appRoute: Route[] = [
         ]
     },
     {
-        path: "priviledged", component: PrivilegedComponent, canActivate: [PrivilegedGuard]
+        path: "priviledged", component: PrivilegedComponent, canActivate: [PrivilegedGuard], canDeactivate: [PrivilegedDeactivateGuard],
+        resolve: {privilegedData: PrivilegeDataService}
     },
     {path: "login", component: LoginComponent},
     { path: "contactUs", component: ContactUsComponent },
@@ -33,7 +35,7 @@ const appRoute: Route[] = [
     imports: [
         RouterModule.forRoot(appRoute)
     ],
-    providers: [PrivilegedGuard, LoginService],
+    providers: [PrivilegedGuard, LoginService, PrivilegedDeactivateGuard, PrivilegeDataService],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

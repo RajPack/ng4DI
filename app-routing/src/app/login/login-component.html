@@ -1,5 +1,8 @@
 <div class="loginPage">
     <h3>You will need to Login in first as priviledged user</h3>
+    <div *ngIf="login && !priviledgedLogin">
+        <h5> Your login credentials are not of type "Admin/Administrator". You will need 'admin' level elevation to view this page</h5>
+    </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
                 <label class="center-block"> Login Id :

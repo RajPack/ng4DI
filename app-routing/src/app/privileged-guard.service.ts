@@ -1,6 +1,6 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/Router";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanDeactivate } from "@angular/Router";
 import { Observable } from 'rxjs/Observable';
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { LoginService } from "./login.service";
 
 @Injectable()
@@ -19,4 +19,16 @@ export class PrivilegedGuard implements CanActivate {
                 }
             });
     }
+}
+interface CanDeactivateComponent {
+    canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+}
+@Injectable() 
+export class PrivilegedDeactivateGuard implements CanDeactivate<CanDeactivateComponent> {
+    constructor(private router: Router) {}
+    canDeactivate(component: CanDeactivateComponent) {
+        console.log("inside can deactivate !!")
+        return component.canDeactivate ? component.canDeactivate() : true;
+    }
+
 }
