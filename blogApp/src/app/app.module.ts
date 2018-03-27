@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { BlogService, BlogCommentsService, BlogDetailResolver } from './blog/blog.service';
@@ -25,6 +26,7 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
