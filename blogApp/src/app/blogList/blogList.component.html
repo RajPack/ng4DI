@@ -1,0 +1,35 @@
+<div class="container-fluid">
+        <ngb-accordion #acc="ngbAccordion" activeIds="1-header" closeOthers=true>
+                <ngb-panel *ngFor="let blog of listObservable | async" [id]="blog.id">
+                    <ng-template ngbPanelTitle>
+                        <span class="title">{{blog.title}}</span>
+                        <span class='editbutton' style="display: block; float: right;" (click)="editBlog($event, blog)">&nbsp;
+                            <i class="fa fa-edit" title="Edit blog - {{blog.title}}"></i>
+                        </span>&nbsp;
+                        <span class="author" style="display: block; float: right;">Author: {{blog.author}}</span>
+
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <div *ngIf="!blog.editMode">
+                            <div class="content">
+                                {{blog.content}}
+                            </div>
+                            <div class="rating">
+                                <span>
+                                    <i [ngbTooltip]="blog.voteToolTip" (click)='vote("thumbsUp", blog)' class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
+                                </span>&nbsp;&nbsp;
+                                <span>
+                                    <i [ngbTooltip]="blog.voteToolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown", blog)'></i> &nbsp; {{blog.thumbsDown}}
+                                </span>
+                            </div>
+                            <div class="commentsSection">
+                                <app-comments [blog]="blog"></app-comments>
+                            </div>
+                        </div>
+                        <div *ngIf="blog.editMode===true">
+                            <app-blog-edit [blog]='blog'></app-blog-edit>
+                        </div>
+                    </ng-template>
+                </ngb-panel>
+        </ngb-accordion>
+</div>

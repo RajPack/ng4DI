@@ -1,0 +1,26 @@
+<div class='alert alert-info '><strong style="font-size: 1.1em;">Edit Form</strong></div>
+<form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div>
+            <label class="center-block"> Title :
+                <input class="form-control" formControlName="title">
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Content :
+                <textarea rows="20" cols="150" class="form-control" formControlName="content"></textarea>
+            </label>
+        </div>
+        <div>
+            <label class="center-block"> Author :
+                <input class="form-control" formControlName="author">
+            </label>
+        </div>
+        <div style ="padding:10px  5px;; float:right;">
+                <button type="submit" class="btn btn-info" [disabled]="!blogForm.valid">Submit</button>
+        </div>
+        <div style ="padding:10px  5px;; float:right;">
+                <button  class="btn btn-danger"  (click)="toggleEditMode()">Cancel</button>
+        </div>
+    </div>
+</form>
