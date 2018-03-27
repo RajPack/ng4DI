@@ -1,13 +1,21 @@
-<div class="jumbotron jumbotron-fluid">
+<nav class="navbar navbar-dark bg-info text-light">
     <div class="container">
-        <h2 class="display-4">Welcome to Angular Rxjs Application</h2>
-        <p class="lead">This is blog review site demo</p>
-        <hr class="my-2">
-        <p>Check out the blogs below and rate them</p>
-        <button class="btn btn-success" (click)="enterCreateMode()">Create Blog</button>
+        <div class="display-4">Welcome to Angular Blog Application Demo</div>
+        <div class="lead">You may review the blogs, add new blogs, edit existing blogs, add comments to existing blogs</div>
     </div>
+</nav>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand"> Blog App links</span>
+        <ul class="navbar-nav flexRow mr-auto">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="blogList" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}"  class="nav-link">All Blogs</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a routerLink="newBlog" routerLinkActive="active" class="nav-link">New Blog</a>
+            </li>
+        </ul>
+</nav>
+
+<div class="content">
+    <router-outlet></router-outlet>
 </div>
-<div *ngIf="createMode===true"  class="addSection">
-    <app-blog-add></app-blog-add>
-</div>
-<app-blog-list></app-blog-list>

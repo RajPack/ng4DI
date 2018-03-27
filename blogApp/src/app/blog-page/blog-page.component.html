@@ -1,0 +1,22 @@
+<div>
+    <span class="title"><h3 class="display-4">{{blog.title}}</h3></span>
+    <div> Author: {{blog.author}}</div>
+    <div>
+      <a [routerLink]="['../../editBlog', blog.id]">Edit this Blog</a> 
+    </div>
+</div>
+
+<div class="content">
+    {{blog.content}}
+</div>
+<div class="rating">
+    <span>
+        <i [ngbTooltip]="blog.voteToolTip" (click)='vote("thumbsUp", blog)' class=" fa fa-thumbs-up"></i> &nbsp; {{blog.thumbsUp}}
+    </span>&nbsp;&nbsp;
+    <span>
+        <i [ngbTooltip]="blog.voteToolTip" class=" fa fa-thumbs-down" (click)='vote("thumbsDown", blog)'></i> &nbsp; {{blog.thumbsDown}}
+    </span>
+</div>
+<div class="commentsSection">
+    <app-comments [blogId]="blogId"></app-comments>
+</div>

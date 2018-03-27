@@ -8,12 +8,18 @@ import 'rxjs/add/operator/filter';
 import { Subject } from 'rxjs/Subject';
 import { BlogComment } from '../comments/comment.model';
 import { Subscription } from 'rxjs/Subscription';
+import { Injectable } from '@angular/core';
+import { Router, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observer } from 'rxjs/Observer';
 
-
+@Injectable()
 export class BlogService {
     private blogListSubject: BehaviorSubject<Blog[]> = new BehaviorSubject(initialBloglist);
     creationComplete: Subject<boolean> = new Subject();
 
+    constructor(private router: Router) {
+
+    }
     getBlogListSubject(): BehaviorSubject<Blog[]> {
         return this.blogListSubject;
     }
@@ -43,10 +49,41 @@ export class BlogService {
         this.blogListSubject.subscribe((list) => {currentList = list; });
         currentList.push(newBlog);
         this.blogListSubject.next(currentList);
-        this.notifyCreationComplete();
+        // this.notifyCreationComplete();
     }
     notifyCreationComplete() {
         this.creationComplete.next(true);
+    }
+    getBlogWithId(id: string | number ){
+        let result: Blog, blogObservable;
+        let subscription = this.blogListSubject.subscribe((list)=> {
+           let filteredList =  list.filter ((blog)=> {
+                return blog.id === +id
+            }); 
+            result = filteredList.length === 1 ? filteredList[0] : undefined;
+        });
+        subscription.unsubscribe();
+        blogObservable = Observable.create((observer: Observer<Blog>)=> {
+            observer.next(result);
+            observer.complete();
+        });
+        return blogObservable;
+    }
+
+    navigateTo (path: any) {
+        this.router.navigate(path);
+    }
+}
+
+@Injectable()
+export class BlogDetailResolver implements Resolve<Blog>{
+    constructor(private blogService: BlogService) {
+
+    }
+
+    resolve (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Blog> {
+        let id = route.paramMap.get("id");
+        return this.blogService.getBlogWithId(id);
     }
 }
 

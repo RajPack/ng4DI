@@ -30,8 +30,9 @@ export class BlogAddComponent implements OnInit {
         title = this.blogAddForm.get('title').value;
         content = this.blogAddForm.get('content').value;
         this.blogService.addNewBlog(title,author, content);
+        this.blogService.navigateTo(["/blogList"]);
     }
     destroyComponent() {
-       this.blogService.creationComplete.next(true);
+        this.blogService.navigateTo(["/blogList"]);
     }
 }

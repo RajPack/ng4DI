@@ -1,9 +1,15 @@
-
-.rating i {
-    cursor: pointer;
-    font-size: 1.5em;
-    padding: 20px 0px 0px;
+.allblogsTitle{
+    padding: 10px;
+    font-size: 32px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
+.blogItem{
+    margin-top: 25px;
+    min-height: 100px;
+    border-bottom: 1px solid #e4e6e8
+}
+
 i.fa-thumbs-up{
     color: lightskyblue;
 }
@@ -17,19 +23,17 @@ i.fa-thumbs-down {
 .title {
     font-size:  20px;
     color: grey;
-    font-weight: bold;
 }
-.title:hover {
-    text-decoration: none !important;
+.medialeft {
+    padding: 20px;
+    position: relative;
+    bottom: 12px;
+
 }
-.content{
-    white-space: pre-line;
-}
-.editbutton{
-    cursor: pointer;
-    font-size: 16px;
-    color: #098dc1;
-}
-.editbutton:hover{
-    font-size: 18px;
+.contentPreview {
+    width: 80vw;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

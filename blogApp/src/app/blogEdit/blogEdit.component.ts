@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Blog } from "../blog/blog.model";
 import { BlogService } from "../blog/blog.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'app-blog-edit',
@@ -10,13 +11,16 @@ import { BlogService } from "../blog/blog.service";
     styleUrls:  ['./blogEdit.component.css']
 })
 export class BlogEditComponent implements OnInit {
-    @Input() blog: Blog;
+    blog: Blog;
     blogForm: FormGroup;
-    constructor(private formBuilder: FormBuilder, private blogService: BlogService) {
+    constructor(private formBuilder: FormBuilder, private blogService: BlogService, private route: ActivatedRoute) {
         this.createForm();
     }
     ngOnInit() {
-        this.setInitialValue();
+        this.route.data.subscribe((data)=> {
+            this.blog = data.blog;
+            this.setInitialValue();
+        });
     }
     createForm() {
         this.blogForm = this.formBuilder.group({
@@ -40,8 +44,9 @@ export class BlogEditComponent implements OnInit {
         title = this.blogForm.get('title').value;
         content = this.blogForm.get('content').value;
         this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content});
+        this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
     }
     private toggleEditMode() {
-        this.blog.editMode = !this.blog.editMode;
+        this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
     }
 }

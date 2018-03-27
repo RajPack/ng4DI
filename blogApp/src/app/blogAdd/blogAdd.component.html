@@ -16,11 +16,11 @@
                 <input class="form-control" formControlName="author">
             </label>
         </div>
-        <div style ="padding:10px  5px;; float:right;">
+        <div style ="padding:10px  5px; float:left;">
                 <button type="submit" class="btn btn-info" [disabled]="!blogAddForm.valid">Submit</button>
         </div>
-        <div style ="padding:10px  5px;; float:right;">
-                <button  class="btn btn-danger"  (click)="destroyComponent()">Cancel</button>
+        <div style ="padding:10px  5px;; float:left;">
+                <button  class="btn btn-danger" type="button"   (click)="destroyComponent()">Cancel</button>
         </div>
         <div style="clear: both;"></div>
     </div>

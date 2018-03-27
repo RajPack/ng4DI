@@ -3,6 +3,7 @@ import { BlogService } from '../blog/blog.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Blog } from '../blog/blog.model';
+import {  ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,10 +12,21 @@ import { Blog } from '../blog/blog.model';
 })
 export class BlogListComponent implements OnInit {
   listObservable: Observable<Blog[]>;
+  sideView = false;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private router: Router) { }
   ngOnInit() {
     this.listObservable = this.blogService.getBlogListSubject();
+    this.sideView = this.router.url.match("/blogList/blog/") ? true: false;
+    this.sideView = this.router.url.match("/blogList/editBlog/") ? true: this.sideView;
+    this.router.events.subscribe((event)=> {
+      if(event instanceof NavigationEnd){
+        let url = event.url;
+        this.sideView = url.match("/blogList/blog/") ? true: false;
+        this.sideView = url.match("/blogList/editBlog/") ? true: this.sideView;
+      }
+    });
+
   }
   private editBlog(event, blog) {
     event.preventDefault();
@@ -24,10 +36,6 @@ export class BlogListComponent implements OnInit {
   private toggleEditMode(blog) {
     blog.editMode = !blog.editMode;
   }
-  private vote(direction: string, blog: Blog) {
-    (!blog.voted) && (blog[direction] += 1);
-    blog.voteToolTip = "You have casted your vote for this blog already. Can vote only once!";
-    blog.voted = true;
-  }
+
 }
 

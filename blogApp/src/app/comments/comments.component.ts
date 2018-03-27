@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BlogComment } from './comment.model';
 import { BlogCommentsService } from '../blog/blog.service';
@@ -10,18 +10,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     templateUrl: './comments.component.html',
     styleUrls: ['./comments.component.css']
 })
-export class CommentsComponent implements OnInit {
-    @Input() blog: Blog;
+export class CommentsComponent implements OnInit, OnChanges {
+    @Input() blogId: string;
     commentsObservable: Observable<BlogComment[]>;
+    unsubscriber: any;
     comments: BlogComment[];
     newComment: FormGroup;
     constructor(private commentsService: BlogCommentsService, private formBuilder: FormBuilder) {
 
     }
+    ngOnChanges(){
+        this.updateCommentsSubscription();
+    }
     ngOnInit() {
         this.createForm();
-        this.commentsObservable = this.commentsService.fetchBlogCommentsSubject(this.blog.id);
-        this.commentsObservable.subscribe((arr) => {
+    }
+    updateCommentsSubscription(){
+        this.unsubscriber && this.unsubscriber.unsubscribe();
+        this.commentsObservable = this.commentsService.fetchBlogCommentsSubject(this.blogId);
+        this.unsubscriber =  this.commentsObservable.subscribe((arr) => {
             this.comments = arr;
         });
     }
@@ -35,7 +42,7 @@ export class CommentsComponent implements OnInit {
         let author: string, content: string;
         author = this.newComment.get("author").value;
         content = this.newComment.get("content").value;
-        this.commentsService.addComment(this.blog.id, author, content);
+        this.commentsService.addComment(this.blogId, author, content);
         this.clearForm();
     }
     clearForm() {
