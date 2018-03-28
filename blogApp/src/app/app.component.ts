@@ -21,10 +21,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  getSampleData() {
-    let promise = this.http.get("/sampleData");
+  getData() {
+    let promise = this.http.get("/getAllBlogs");
     promise.subscribe((data)=>{
-      this.sampleResponse = data["data"];
+      this.sampleResponse = JSON.stringify(data);
     });
   }
 

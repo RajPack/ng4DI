@@ -46,7 +46,7 @@ export class BlogEditComponent implements OnInit {
         this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content});
         this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
     }
-    private toggleEditMode() {
+    toggleEditMode() {
         this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
     }
 }
