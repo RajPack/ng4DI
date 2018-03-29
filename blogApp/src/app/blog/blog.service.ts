@@ -12,6 +12,8 @@ import { Router, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@a
 import { Observer } from 'rxjs/Observer';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+
+// Blog Services 
 @Injectable()
 export class BlogService {
     private blogListSubject: BehaviorSubject<Blog[]> = new BehaviorSubject(null);
@@ -80,9 +82,6 @@ export class BlogService {
         this.router.navigate(path);
     }
 }
-
-
-
 // resolver guard service - for specific blog detail
 @Injectable()
 export class BlogDetailResolver implements Resolve<Blog>{
@@ -95,34 +94,31 @@ export class BlogDetailResolver implements Resolve<Blog>{
         return this.blogService.getBlogWithId(id);
     }
 }
+// Blog Services - end
 
+
+//Comment Services
 export class BlogCommentsService {
-    private initialCommentsObj: BlogComment[] = [];
-    private allCommentsSubject: BehaviorSubject<BlogComment[]> = new BehaviorSubject(this.initialCommentsObj);
-
-    constructor() {
-
+    constructor(private http: HttpClient) {
     }
-    fetchBlogCommentsSubject(blogId: any) {
-        let localSubscription: Subscription;
-        const blogCommentsSubject: BehaviorSubject<BlogComment[]> = new BehaviorSubject([]);
-        localSubscription = this.allCommentsSubject.subscribe((commentsArr) => {
-            const blogComments: BlogComment[] = commentsArr.filter((blogComment, index) => {
-                return blogComment.blogId === blogId;
-            });
-            blogCommentsSubject.next(blogComments);
+    getBlogComments(blogId): Observable<BlogComment[]> {
+        let commentsObservable: Observable<BlogComment[]> = Observable.create((observer: Observer<BlogComment[]>) =>{
+            this.http.get("/getBlogComments", {params: new HttpParams().set("blogId", blogId)}).subscribe((data: BlogComment[])=>{
+                observer.next(data);
+                observer.complete();
+            })
         });
-        return blogCommentsSubject;
+        return commentsObservable;
     }
-    addComment(blogId: string, author: string, content: string) {
+    addComment(blogId: string, author: string, content: string): Observable<any> {
         const newComment = new BlogComment(blogId, content, author);
-        let allComments: BlogComment[];
-        const localSubscription = this.allCommentsSubject.subscribe((commentsArr) => {
-            allComments = commentsArr;
+        let addCommentObservable : Observable<any> = Observable.create((observer: Observer<any>)=> {
+            this.http.post("/addComment", newComment ).subscribe((result)=>{
+                observer.next(result);
+                observer.complete();
+            });
         });
-        allComments.push(newComment);
-        this.allCommentsSubject.next(allComments);
-        localSubscription.unsubscribe();
+        return addCommentObservable;
     }
 }
 

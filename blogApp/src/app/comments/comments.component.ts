@@ -14,7 +14,7 @@ export class CommentsComponent implements OnInit, OnChanges {
     @Input() blogId: string;
     commentsObservable: Observable<BlogComment[]>;
     unsubscriber: any;
-    comments: BlogComment[];
+    comments: BlogComment[] = [];
     newComment: FormGroup;
     constructor(private commentsService: BlogCommentsService, private formBuilder: FormBuilder) {
 
@@ -26,10 +26,8 @@ export class CommentsComponent implements OnInit, OnChanges {
         this.createForm();
     }
     updateCommentsSubscription(){
-        this.unsubscriber && this.unsubscriber.unsubscribe();
-        this.commentsObservable = this.commentsService.fetchBlogCommentsSubject(this.blogId);
-        this.unsubscriber =  this.commentsObservable.subscribe((arr) => {
-            this.comments = arr;
+        this.commentsService.getBlogComments(this.blogId).subscribe((data: BlogComment[])=> {
+            this.comments = data;
         });
     }
     createForm() {
@@ -42,7 +40,9 @@ export class CommentsComponent implements OnInit, OnChanges {
         let author: string, content: string;
         author = this.newComment.get("author").value;
         content = this.newComment.get("content").value;
-        this.commentsService.addComment(this.blogId, author, content);
+        this.commentsService.addComment(this.blogId, author, content).subscribe((result)=> {
+            this.updateCommentsSubscription();
+        });
         this.clearForm();
     }
     clearForm() {
