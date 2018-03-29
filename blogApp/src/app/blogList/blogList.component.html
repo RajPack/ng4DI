@@ -1,6 +1,6 @@
 <div class="container-fluid" *ngIf="!sideView">
     <div class=" text-light bg-secondary  display-4  allblogsTitle">All blogs</div>
-    <div class="blogItem media" *ngFor="let blog of listObservable | async">
+    <div class="blogItem media" *ngFor="let blog of listSubject | async">
         <div class=" mr-3 rounded medialeft bg-light ">
             <div>Votes</div>
             <div>
@@ -26,7 +26,7 @@
     <div class=" bg-info text-light col-lg-2 col-md-3 col-sm-3" *ngIf="sideView" style="height: 100vh; border-radius: 6px; margin-right: 20px; padding: 0px;">
         <nav class="nav navbar">
             <ul style="padding:0px;">
-                <li class="nav-link  text-light" *ngFor="let blog of listObservable | async">
+                <li class="nav-link  text-light" *ngFor="let blog of listSubject | async">
                     <span>
                         <a class="nav-item  text-light" [routerLink]="'blog/'+ blog.id">{{blog.title}}</a>
                     </span>

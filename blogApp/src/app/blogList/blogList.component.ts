@@ -3,7 +3,8 @@ import { BlogService } from '../blog/blog.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Blog } from '../blog/blog.model';
-import {  ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {  Router, NavigationEnd } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,12 +12,12 @@ import {  ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./blogList.component.css']
 })
 export class BlogListComponent implements OnInit {
-  listObservable: Observable<Blog[]>;
+  listSubject: BehaviorSubject<Blog[]>;
   sideView = false;
 
   constructor(private blogService: BlogService, private router: Router) { }
   ngOnInit() {
-    this.listObservable = this.blogService.getBlogListSubject();
+    this.listSubject = this.blogService.getBlogListSubject();
     this.sideView = this.router.url.match("/blogList/blog/") ? true: false;
     this.sideView = this.router.url.match("/blogList/editBlog/") ? true: this.sideView;
     this.router.events.subscribe((event)=> {
@@ -28,14 +29,5 @@ export class BlogListComponent implements OnInit {
     });
 
   }
-  private editBlog(event, blog) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    this.toggleEditMode(blog);
-  }
-  private toggleEditMode(blog) {
-    blog.editMode = !blog.editMode;
-  }
-
 }
 

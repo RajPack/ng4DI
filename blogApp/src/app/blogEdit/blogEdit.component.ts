@@ -43,8 +43,9 @@ export class BlogEditComponent implements OnInit {
         author = this.blogForm.get('author').value;
         title = this.blogForm.get('title').value;
         content = this.blogForm.get('content').value;
-        this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content});
-        this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
+        this.blogService.updateBlog({id: this.blog.id, title: title, author: author, content: content}).subscribe(()=> {
+            this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);
+        }); 
     }
     toggleEditMode() {
         this.blogService.navigateTo(["/blogList/blog", this.blog.id ]);

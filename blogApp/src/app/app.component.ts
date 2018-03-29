@@ -21,11 +21,4 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  getData() {
-    let promise = this.http.get("/getAllBlogs");
-    promise.subscribe((data)=>{
-      this.sampleResponse = JSON.stringify(data);
-    });
-  }
-
 }
