@@ -1,0 +1,8 @@
+<div class="navbar bg-primary ">
+  <h2 class="text-light">Welcome to Angular + Redux sample App </h2>
+</div>
+<div class="container" style="padding: 10px;">
+  <textarea cols="100" rows="10" [(ngModel)]="newPost"></textarea> <br>
+  <button type="button" class='btn btn-warning' (click)="addPost()">Add Post</button>
+</div>
+<app-post-list></app-post-list>
