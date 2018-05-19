@@ -43,4 +43,4 @@ app.use('*', express.static('../dist', { index: "index.html" }));
 //app path handlers - end
 
 //bootstrap express middleware - listen to incomming requests from client
-var server = app.listen(4201, "127.0.0.1", function () { });
+var server = app.listen(8080, "192.168.0.107", function () { });
