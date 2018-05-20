@@ -1,0 +1,6 @@
+OOPS in javascript
+
+1. Encapulation - classes , constructor functions, IIFEs, Facade pattern
+2. Abstraction - creating interfaces and enforcing classes to use the abstracted interface's methods and members
+3. Polymorphims - changes the behavior of a specific method based on certain constraints
+4. Inheritance - prototypical Inheritance - basing one class's prototype to another class (base class)
