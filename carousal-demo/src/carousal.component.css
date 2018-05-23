@@ -1,0 +1,96 @@
+.carousal-data{
+    white-space: pre-line;
+    height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.carousal-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    padding: 12px 0px;
+    padding-top: 5px;
+}
+.carousal-section.hidden{
+    visibility: hidden;
+}
+.carousal-sections{
+    position: relative;
+}
+
+.carousal-section.active{
+    position: absolute;
+    top:0;
+    padding: 15px 0px;
+    display: block;
+    -webkit-animation: anim .5s ease-in-out;
+    animation: anim .5s ease-in-out;
+    opacity: 1;
+}
+
+@-webkit-keyframes anim {
+    0% {
+        display: none;
+        opacity: 0;
+        left:100%;
+        top: 0;
+    }
+    10% {
+        display: block;
+        opacity: 0;
+        left:90%;
+        top: 0;
+    }
+    25% { -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        display: block;
+        opacity: 0;
+        left:75%;
+        top:0;
+    }
+    75% {
+        display: block;
+        opacity: 0;
+        left:25%;
+        top:0;
+    }
+    100% {
+        opacity: 1;
+        left:0%;
+        top:0;
+
+    }
+}
+
+@keyframes anim {
+    0% {
+        display: none;
+        opacity: 0;
+        left:100%;
+        top: 0;
+    }
+    10% {
+        display: block;
+        opacity: 0;
+        left:90%;
+        top: 0;
+    }
+    25% { -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        display: block;
+        opacity: 0;
+        left:75%;
+        top:0;
+    }
+    75% {
+        display: block;
+        opacity: 0;
+        left:25%;
+        top:0;
+    }
+    100% {
+        opacity: 1;
+        left:0%;
+        top:0;
+
+    }
+}
