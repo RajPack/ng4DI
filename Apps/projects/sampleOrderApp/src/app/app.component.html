@@ -1,0 +1,20 @@
+<div class="appC">
+  <div class="topbar">
+    <div class="logotopC" [routerLink]='["/"]'>
+      <img src="assets/logotop.png" alt="" srcset="">
+    </div>
+    <div class="logobottomC">
+      <img src="assets/logo.png" alt="">
+    </div>
+  </div>
+  <div class="navbar">
+    <ul class="navUl">
+      <li *ngFor="let navItem of navItems" (mouseenter)="menuEnter($event)" [ngClass]='{hovered: navItem.hovered }' [attr.key]='navItem.key'>
+          <span class="navItem-text">{{navItem.displayName}}</span>
+      </li>
+    </ul>
+  </div>
+  <app-floating-menu *ngIf="showMenu" [key]='currentMenuKey' ></app-floating-menu>
+  <router-outlet></router-outlet>
+  
+</div>

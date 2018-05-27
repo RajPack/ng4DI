@@ -1,0 +1,35 @@
+<div class="product-container">
+  <div class="product-details">
+    <div class="product-title">
+      {{product.name}}
+    </div>
+    <div class="image-section">
+      <img [src]="product.imageSrc">
+    </div>
+    <div class="product-desc">
+      {{product.desc}}
+    </div>
+  </div>
+
+  <div class="form-section">
+    <form (submit)="onSubmit()" [formGroup]='purchaseForm'>
+      <div class="form-group">
+        <label for="name">Name : </label>
+        <input type="text" placeholder="Enter your full name " formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email : </label>
+        <input type="email" placeholder="Enter your email address" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="qty">Quantity : </label>
+        <input type="text" placeholder="Enter your email address" formControlName="quantity">
+      </div>
+      <div class="form-group">
+        <label for="info">Additional Info : </label>
+        <textarea type="textarea" placeholder="Enter any additional information or queries here" formControlName="additionalInfo"> </textarea>
+      </div>
+      <button [disabled]='!purchaseForm.valid' type="submit">Submit</button>
+    </form>
+  </div>
+</div>

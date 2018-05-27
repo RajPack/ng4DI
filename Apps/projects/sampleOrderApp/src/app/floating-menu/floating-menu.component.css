@@ -1,0 +1,26 @@
+.floating-menu-container{
+    margin: 0px 40px;
+    padding: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background:#379a99;
+    position: absolute;
+}
+ul li {
+    font-size: 17px;
+    color: white;
+    text-align: start;
+    list-style: none;
+    cursor: pointer;
+}
+
+ul {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+li {
+    flex-basis: 50%;
+    padding: 15px 0px;
+
+}

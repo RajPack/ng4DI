@@ -1,0 +1,5 @@
+<div class="floating-menu-container" (mouseleave)='onLeave()' *ngIf='!hide'>
+  <ul>
+    <li *ngFor="let item of floatingItems | async" [routerLink]='["/product/", item.type,item.key]' (click)='onLeave()'>{{item.key}}</li>
+  </ul>
+</div>

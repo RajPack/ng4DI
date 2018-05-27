@@ -6,6 +6,6 @@
 
 But soon became my github repository for all my angular apps.. 
 
-
+Now updated to angular 6 projects 
 
 `RajPack`

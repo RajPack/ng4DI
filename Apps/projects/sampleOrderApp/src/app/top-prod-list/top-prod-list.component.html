@@ -1,0 +1,14 @@
+<div class="topProdC">
+  <div class="topProdItem" *ngFor='let item of topItems | async'>
+      <div class="title">{{item.name}}</div>
+      <div class="detail">
+        <div class="imgC">
+          <img src="{{item.imageSrc}}" alt="">
+        </div>
+        <div class="descC">
+          <div class="desc-section">{{item.desc}}</div>
+          <div class="view-more" [routerLink]='["/product", item.type, item.name]'>View More</div>
+        </div>
+      </div>
+  </div>
+</div>
