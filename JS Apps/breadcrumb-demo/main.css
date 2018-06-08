@@ -84,13 +84,13 @@ span.progress-nav-inner-triangle[status="inactive"] {
   }
   span.progress-nav-outer-triangle {
     border-left: 14px solid #f5f5f5;
-    border-top: 19px solid transparent;
-    border-bottom: 19px solid transparent;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
   }
   span.progress-nav-inner-triangle {
     border-left: 14px solid white;
-    border-top: 19px solid transparent;
-    border-bottom: 19px solid transparent;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
   }
 }
 
