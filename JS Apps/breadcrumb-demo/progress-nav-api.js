@@ -7,7 +7,7 @@ var breadCrumbAPI = (function() {
   
     function getBars(data) {
       var list = document.createElement('div');
-      list.classList = "progress-nav-list";
+      list.className = "progress-nav-list";
 
       for (var i=0; i<data.length; i++) {
           var item = data[i];
@@ -19,17 +19,17 @@ var breadCrumbAPI = (function() {
   
     function drawSingleBar(label, status, nextitemStatus, events) {
       var itemContainer = document.createElement('div');
-      itemContainer.classList="progress-item-container";
+      itemContainer.className="progress-item-container";
       var item = document.createElement('div');
-      item.classList="progress-item-label"
+      item.className="progress-item-label";
       item.innerText= label;
       item.setAttribute('status', status );
       itemContainer.appendChild(item);
       var innerTriangle = document.createElement('span');
-      innerTriangle.classList = "progress-nav-inner-triangle";
+      innerTriangle.className = "progress-nav-inner-triangle";
       innerTriangle.setAttribute('status', status);
       var outerTriangle = document.createElement('span');
-      outerTriangle.classList = "progress-nav-outer-triangle";
+      outerTriangle.className = "progress-nav-outer-triangle";
       outerTriangle.setAttribute('status', status );
       itemContainer.appendChild(innerTriangle);
       itemContainer.appendChild(outerTriangle);

@@ -27,6 +27,7 @@ span.progress-nav-inner-triangle[status="inactive"] {
 span.progress-nav-inner-triangle {
   transition: 0.7s background;
   position: absolute;
+  top: 0px;
   left: 0px;
   border-left: 26px solid white;
   border-top: 30px solid transparent;
@@ -62,14 +63,14 @@ span.progress-nav-inner-triangle[status="inactive"] {
 
 .progress-item-container:hover .progress-item-label {
   background: #51a126;
-  color: white;progressAPI
+  color: white;
 }
 .progress-item-container:hover .progress-nav-outer-triangle {
   border-left-color: #51a126;
 }
 .progress-nav-list .progress-item-container:first-child .progress-item-label {
   padding-left: 20px;
-}
+} 
 
 @media screen and (max-width: 1100px) {
   .progress-nav-list .progress-item-label {
