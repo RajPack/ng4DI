@@ -1,4 +1,4 @@
-<div class="border">
+<div class="border" [ngClass]="{'special2': true}">
   <h2>Parent Component</h2>
   {{obj | json}}
     <app-child-component [in]='obj'></app-child-component>

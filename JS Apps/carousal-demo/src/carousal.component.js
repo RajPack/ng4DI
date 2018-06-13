@@ -13,8 +13,8 @@ export class Carousal extends Component {
   render() {
     return (
         <div className={"carousal-section "+ (this.state.active==="yes" ? 'active' : 'hidden')} data-index={this.state.index} >
-        <div className='carousal-title'>{this.state.title}</div>
-        <div className='carousal-data'> {this.state.data} </div>
+          <div className='carousal-title'>{this.state.title}</div>
+          <div className='carousal-data'> {this.state.data} </div>
       </div>
     );
   }
