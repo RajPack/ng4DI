@@ -1380,6 +1380,121 @@
           }
         }
       }
+    },
+    "sortableTables": {
+      "root": "projects/sortableTables/",
+      "sourceRoot": "projects/sortableTables/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sortableTables",
+            "index": "projects/sortableTables/src/index.html",
+            "main": "projects/sortableTables/src/main.ts",
+            "polyfills": "projects/sortableTables/src/polyfills.ts",
+            "tsConfig": "projects/sortableTables/tsconfig.app.json",
+            "assets": [
+              "projects/sortableTables/src/favicon.ico",
+              "projects/sortableTables/src/assets"
+            ],
+            "styles": [
+              "projects/sortableTables/src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sortableTables/src/environments/environment.ts",
+                  "with": "projects/sortableTables/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sortableTables:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sortableTables:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sortableTables:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sortableTables/src/test.ts",
+            "polyfills": "projects/sortableTables/src/polyfills.ts",
+            "tsConfig": "projects/sortableTables/tsconfig.spec.json",
+            "karmaConfig": "projects/sortableTables/karma.conf.js",
+            "styles": [
+              "projects/sortableTables/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/sortableTables/src/favicon.ico",
+              "projects/sortableTables/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sortableTables/tsconfig.app.json",
+              "projects/sortableTables/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sortableTables-e2e": {
+      "root": "projects/sortableTables-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sortableTables-e2e/protractor.conf.js",
+            "devServerTarget": "sortableTables:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/sortableTables-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "app-redux",

@@ -506,10 +506,37 @@ var zutils = (function() {
     };
   })();
 
+  var ServerPromise = (function () {
+    function BSCall(BSName, BSMethod, INp) {
+       var dfd = void 0,
+           config = void 0,
+           serv = void 0;
+       dfd = $.Deferred();
+       config = { async: true, cb: BSCB.bind(dfd) };
+       serv = SiebelApp.S_App.GetService(BSName);
+       serv.InvokeMethod(BSMethod, INp, config);
+       return dfd.promise();
+   };
+   function BSCB(MethodName, INp, OUTp) {
+       var resultSet = void 0,
+           orig = { dataArr: arguments };
+       try {
+           resultSet = OUTp.GetChildByType("ResultSet");
+           this.resolve(resultSet, orig);
+       } catch (e) {
+           console.log(e);
+           this.reject(e, orig);
+       }
+   }
+   return BSCall;
+}());
+
+
   return {
     breadCrumbAPI: breadCrumbAPI,
     Carousal: Carousal,
     csvExporter: csvExporter,
-    hbarChartAPI: hbarChartAPI
+    hbarChartAPI: hbarChartAPI,
+    ServerPromise: ServerPromise
   };
 })();
