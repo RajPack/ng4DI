@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="mt-5">Store Demo</h1>
+  <h2 class="mt-5">Add Tutorials</h2>
+  <h2 class="mt-5">Tutorials in our Store:</h2>
+  <ul class='list-group'>
+    <li class="list-group-item" *ngFor='let tutorial of tutorials$ | async'>
+      <div>{{tutorial.name}}</div>
+      <div>link:
+        <a href="">{{tutorial.url}}</a>
+      </div>
+    </li>
+  </ul>
+
+</div>
